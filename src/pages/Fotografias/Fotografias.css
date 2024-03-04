@@ -1,0 +1,68 @@
+/* Fotografias.css */
+
+.containerfoto {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+  .btn-back {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .btn-back p {
+    margin: 0;
+    padding-left: 5px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para los botones */
+  button {
+    margin-top: 10px;
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+  }
+  
+  /* Estilos para la caja de video */
+  video {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%; /* Utiliza el ancho máximo del contenedor */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  /* Estilos para la foto capturada */
+.img-container {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.img-container img {
+  width: 100%;
+  max-width: calc(33.33% - 10px); /* Ajusta el ancho máximo según tus necesidades */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  /* Estilos para la foto capturada */
+  img {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,0 +1,50 @@
+.custom-header ion-toolbar {
+    color:white;
+    --background: #49176E;
+}
+
+.home-container{
+    padding: 1rem !important;
+}
+
+.home-container p{
+    text-align: left;
+    margin-top: 1rem !important;
+}
+
+.home-container p strong{
+    font-size: 1.2rem;
+}
+
+.home-container .buscador{
+    margin-top: 2rem;
+}
+
+.loading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+    font-weight: bold;
+
+    height: 100%;
+}
+
+.loading img{
+    width: 5rem;
+}
+
+@keyframes UpDown {
+    0%{
+        transform: translateX(0);
+    }
+
+    50%{
+        transform: translateX(20px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
