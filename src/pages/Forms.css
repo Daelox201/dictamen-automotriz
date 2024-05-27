@@ -1,0 +1,26 @@
+.btn{
+    width: 90%;
+    margin:0.6rem auto;
+    padding: 1rem 1rem;
+    border-radius: 0.3rem;
+    background-color: transparent;
+    color: black;
+    border: 1px solid #898989;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+
+.container .btns *{
+    margin: 0.5rem;
+}
+
+.container{
+    text-align: left;
+}
+
+.container ion-label{
+    font-weight: bold;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,23 @@
+
+.evaluaciones .data p {
+    color: black;
+}
+
+.evaluaciones .data p span{
+    color: #666666;
+}
+
+.evaluaciones .data-flex{
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-bottom: 1rem !important;
+
+}
+
+.evaluaciones .data-flex div{
+    width: fit-content;
+    min-width: fit-content;
+}

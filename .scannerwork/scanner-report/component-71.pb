@@ -1,0 +1,1 @@
+G 2tsXÌhr.src/pages/SistemasMotor/SistemaEnfriamento.tsx

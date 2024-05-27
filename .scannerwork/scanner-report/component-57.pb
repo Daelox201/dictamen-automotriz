@@ -1,0 +1,1 @@
+9 2tsXÖhr!src/pages/Interiores/Asientos.tsx

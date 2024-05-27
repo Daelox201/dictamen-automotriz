@@ -1,0 +1,1 @@
+ 2tsXÝhr%src/pages/Automotrices/Trasmision.tsx

@@ -1,0 +1,1 @@
+. 2tsXÏhr'src/pages/Evaluaciones/Evaluaciones.tsx

@@ -1,0 +1,90 @@
+.btn-back{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.icon{
+    width:1.5rem;
+    height:1.5rem;
+    margin-right: 0.2rem;
+}
+
+.container{
+    padding: 1rem !important;
+}
+
+.container strong{
+    color: black;
+    font-size: 1.2rem !important;
+}
+
+.form ion-input{
+    margin: 1rem 0;
+    height: 3rem !important;
+    min-height: 3rem !important;
+    max-height: 3rem !important;
+}
+
+.title{
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.btns-bottom [class*='btn-']{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 2.5rem;
+}
+
+.btns-bottom [class*='btn-'] strong{
+    font-size: 0.9rem !important;
+}
+
+.first .btn-next{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 2.5rem;
+}
+
+.first .btn-next strong{
+    font-size: 0.9rem !important;
+}
+
+.modal p{
+    color: black;
+}
+
+form p{
+    text-align: left;
+    color: black !important;
+    font-weight: 600;
+    margin-top: 1.5rem !important;
+}
+
+.btns-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.native-input[type=date]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+ion-input{
+    text-align: left;
+}
+
+.container-evaluacion{
+    margin-bottom: 1rem;
+}
+
+.container-ResEvaluacion{
+    margin-bottom: 2.5rem;
+}

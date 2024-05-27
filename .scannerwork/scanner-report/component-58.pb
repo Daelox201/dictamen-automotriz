@@ -1,0 +1,1 @@
+: 2tsXµhr+src/pages/Interiores/DomoTraseroCajuela.tsx

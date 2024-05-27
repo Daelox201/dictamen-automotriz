@@ -1,0 +1,30 @@
+
+.accordion{
+    margin: 0.5rem 0.2rem;
+}
+
+.titleAccordion ion-label{
+    color: white !important;
+}
+
+.accordion ion-item{
+    --background:#681da1d5 !important;
+    color:white;
+}
+
+.title-card{
+    font-size: 1.1rem;
+}
+
+.label{
+    color: black;
+}
+
+.label-total{
+    margin-top: 0.5rem;
+}
+
+.subtitle{
+    color: black;
+    font-style: italic;
+}

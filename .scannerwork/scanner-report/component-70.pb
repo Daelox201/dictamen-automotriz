@@ -1,0 +1,1 @@
+F 2tsXÒhr4src/pages/SistemasMotor/SistemaEncendidoIgnicion.tsx

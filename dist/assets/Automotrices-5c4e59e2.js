@@ -1,0 +1,1 @@
+import{a as s}from"./index-39e09190.js";import{B as e}from"./BtnsPage-88a0f1a7.js";const n=()=>s(e,{items:[{route:"direccion",name:"Direction"},{route:"suspension",name:"Suspension"},{route:"chassis",name:"Chassis"},{route:"frenos",name:"Frenos"},{route:"trasmision",name:"Trasmision"}],sectionTitle:"Sistemas Automotrices"});export{n as default};

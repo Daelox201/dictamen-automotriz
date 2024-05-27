@@ -1,0 +1,1 @@
+2 2tsXChr+src/pages/GeneralesMotor/GeneralesMotor.tsx

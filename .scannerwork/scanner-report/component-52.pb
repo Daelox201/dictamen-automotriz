@@ -1,0 +1,1 @@
+4 2tsX¨hr'src/pages/GeneralesMotor/Sujeciones.tsx

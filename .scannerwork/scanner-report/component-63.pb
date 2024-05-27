@@ -1,0 +1,1 @@
+? 2tsXŸhr.src/pages/Interiores/TapiceriasAlfombrados.tsx

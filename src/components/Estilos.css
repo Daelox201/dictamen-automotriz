@@ -1,0 +1,126 @@
+.dictamen-card{
+    position: relative;
+    width: 14rem !important;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid #8c8c8c;
+    border-radius: 0.4rem;
+  
+    box-shadow: 2px 3px 5px #8d8d8d;
+
+    cursor: pointer;
+  }
+  
+  .dictamen-card p strong{
+    font-size: 1rem;
+  }
+  
+  .dictamen-card p{
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    margin: 0 !important;
+  }
+  
+  .dictamen-card figure{
+    position: relative;
+    width: inherit;
+    margin: 0;
+    height: 6rem;
+  }
+  
+  .dictamen-card img{
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .dictamenes-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .lds-ellipsis {
+    margin: auto;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+
+  .loading-animation{
+    margin: 0 !important;
+  }
+
+  .lds-ellipsis div {
+    position: absolute;
+    top: 10px;
+    width: 9.5px;
+    height: 9.5px;
+    border-radius: 50%;
+    background: #000;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+  @media only screen and (min-width : 0px) and (max-width: 480px) {
+    .dictamen-card{
+      width: 10rem !important;
+    }
+
+    .dictamenes-container{
+      display: flex;
+    }
+
+    .dictamen-card figure{
+      margin: 0 !important;
+    }
+
+  }
+
+  @media only screen and (min-width : 0px) and (max-width: 360px) {
+    .dictamen-card{
+      width: 100% !important;
+    }
+
+  }

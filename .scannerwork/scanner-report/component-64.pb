@@ -1,0 +1,1 @@
+@ 2tsXAhr#src/pages/Preliminar/Preliminar.tsx

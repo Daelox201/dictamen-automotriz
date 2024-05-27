@@ -1,0 +1,1 @@
+* 2tsXWhr/src/pages/Datos/DatosSedeOficinaHidalgoPago.tsx
