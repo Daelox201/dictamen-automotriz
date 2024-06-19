@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Document, Page, Text, View, Image } from "@react-pdf/renderer";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 
-// Se modifican archivos para los logos de cada gobierno y actualizaciones
 
 import { styles } from "./PreliminarPDFStyles";
 import { Row } from "../../components/pdfTablaASCE/Row";
