@@ -143,99 +143,112 @@ export class Firebase{
 
     // ...
 
-    async guardarFotoEnFirebase(imageData) {
+    async guardarFotoEnFirebase(imageData: string): Promise<void> {
         try {
-            console.log("ImageData:", imageData); // Agrega este console.log
-            const blobData = dataURItoBlob(imageData); // Línea original
-    
-            const dictamenId = localStorage.getItem('idDictamen');
-            if (dictamenId) {
-                // Generar un nombre único para la imagen
-                const imageName = `${Date.now()}_${Math.floor(Math.random() * 1000)}.png`;
-    
-                // Crear una referencia al almacenamiento de Firebase (reemplaza 'fotos' con tu ruta en Storage)
-                const storageRef = ref(storage, `dictamenes/fotos/${dictamenId}/${imageName}`);
-    
-                // Subir la imagen a Firebase Storage
-                await uploadBytes(storageRef, blobData); // Actualizado para usar blobData en lugar de imageData
-    
-                // Obtener la URL de la imagen almacenada
-                const downloadURL = await getDownloadURL(storageRef);
-    
-                // Actualizar la base de datos con la URL de la imagen
-                const dictamenDocRef = doc(db, "dictamenes", dictamenId);
-                await updateDoc(dictamenDocRef, {
-                    fotos: arrayUnion(downloadURL),  // Asumiendo que tienes un campo 'fotos' en tu documento dictamen
-                });
-    
-                console.log("Foto guardada en Firebase exitosamente");
-            } else {
-                console.error("No hay un ID de dictamen válido.");
-            }
+          console.log("ImageData:", imageData);
+          
+          // Convertir Data URI a Blob
+          const blobData = this.dataURItoBlob(imageData);
+      
+          const dictamenId = localStorage.getItem('idDictamen');
+          if (dictamenId) {
+            // Generar un nombre único para la imagen
+            const imageName = `${Date.now()}_${Math.floor(Math.random() * 1000)}.png`;
+      
+            // Crear una referencia al almacenamiento de Firebase
+            const storageRef = ref(storage, `dictamenes/fotos/${dictamenId}/${imageName}`);
+      
+            // Subir la imagen a Firebase Storage
+            await uploadBytes(storageRef, blobData);
+      
+            // Obtener la URL de la imagen almacenada
+            const downloadURL = await getDownloadURL(storageRef);
+      
+            // Actualizar la base de datos con la URL de la imagen
+            const dictamenDocRef = doc(db, "dictamenes", dictamenId);
+            await updateDoc(dictamenDocRef, {
+              fotos: arrayUnion(downloadURL),  // Asumiendo que tienes un campo 'fotos' en tu documento dictamen
+            });
+      
+            console.log("Foto guardada en Firebase exitosamente");
+          } else {
+            console.error("No hay un ID de dictamen válido.");
+          }
         } catch (error) {
-            console.error("Error al guardar la foto en Firebase:", error);
+          console.error("Error al guardar la foto en Firebase:", error);
         }
-    }
+      }
+      
+      // Asegúrate de tener la función dataURItoBlob definida:
+      private dataURItoBlob(dataURI: string): Blob {
+        const splitDataURI = dataURI.split(",");
+        const type = splitDataURI[0].split(":")[1].split(";")[0];
+        const byteString = atob(splitDataURI[1]);
+        const buffer = new ArrayBuffer(byteString.length);
+        const view = new Uint8Array(buffer);
+        for (let i = 0; i < byteString.length; i++) {
+          view[i] = byteString.charCodeAt(i);
+        }
+        return new Blob([buffer], { type });
+      }
+      
   
-  async obtenerFotosDeFirebase() {
-    try {
-      const dictamenId = localStorage.getItem('idDictamen');
-      if (dictamenId) {
-        // Obtener la información del dictamen desde la base de datos
-        const dictamenDocRef = doc(db, "dictamenes", dictamenId);
-        const dictamenDocSnap = await getDoc(dictamenDocRef);
-  
-        if (dictamenDocSnap.exists()) {
-          const dictamenData = dictamenDocSnap.data();
-          return dictamenData.fotos || [];
-        } else {
-          console.log("No existe el dictamen con el ID especificado.");
+      async obtenerFotosDeFirebase(): Promise<string[]> {
+        try {
+          const dictamenId = localStorage.getItem('idDictamen');
+          if (dictamenId) {
+            // Obtener la información del dictamen desde la base de datos
+            const dictamenDocRef = doc(db, "dictamenes", dictamenId);
+            const dictamenDocSnap = await getDoc(dictamenDocRef);
+      
+            if (dictamenDocSnap.exists()) {
+              const dictamenData = dictamenDocSnap.data();
+              return dictamenData.fotos || [];
+            } else {
+              console.log("No existe el dictamen con el ID especificado.");
+              return [];
+            }
+          } else {
+            console.error("No hay un ID de dictamen válido.");
+            return [];
+          }
+        } catch (error) {
+          console.error("Error al obtener las fotos desde Firebase:", error);
           return [];
         }
-      } else {
-        console.error("No hay un ID de dictamen válido.");
-        return [];
       }
-    } catch (error) {
-      console.error("Error al obtener las fotos desde Firebase:", error);
-      return [];
-    }
-  }
+      
   
-  async eliminarFotoEnFirebase(photoURL) {
-    try {
-      const dictamenId = localStorage.getItem('idDictamen');
-        console.log(dictamenId);
-
-      if (dictamenId) {
-        // Eliminar la foto de Firebase Storage (reemplaza 'fotos' con tu ruta en Storage)
-        const storageRef = ref(storage, `dictamenes/fotos/${dictamenId}/${photoURL}`);
-        console.log("URL");
-
-        console.log(photoURL);
-
-        console.log("Storage");
-
-        console.log(storageRef);
-        await deleteObject(storageRef);
-  
-        // Eliminar la URL de la foto de la base de datos
-        const dictamenDocRef = doc(db, "dictamenes", dictamenId);
-        console.log("doc");
-
-        console.log(dictamenDocRef);
-        await updateDoc(dictamenDocRef, {
-          fotos: arrayRemove(photoURL),
-        });
-  
-        console.log("Foto eliminada de Firebase exitosamente");
-      } else {
-        console.error("No hay un ID de dictamen válido.");
+      async eliminarFotoEnFirebase(photoURL: string): Promise<void> {
+        try {
+          const dictamenId = localStorage.getItem('idDictamen');
+          console.log(dictamenId);
+      
+          if (dictamenId) {
+            // Eliminar la foto de Firebase Storage
+            const storageRef = ref(storage, `dictamenes/fotos/${dictamenId}/${photoURL}`);
+            console.log("URL", photoURL);
+            console.log("Storage", storageRef);
+      
+            await deleteObject(storageRef);
+      
+            // Eliminar la URL de la foto de la base de datos
+            const dictamenDocRef = doc(db, "dictamenes", dictamenId);
+            console.log("doc", dictamenDocRef);
+      
+            await updateDoc(dictamenDocRef, {
+              fotos: arrayRemove(photoURL),
+            });
+      
+            console.log("Foto eliminada de Firebase exitosamente");
+          } else {
+            console.error("No hay un ID de dictamen válido.");
+          }
+        } catch (error) {
+          console.error("Error al eliminar la foto desde Firebase:", error);
+        }
       }
-    } catch (error) {
-      console.error("Error al eliminar la foto desde Firebase:", error);
-    }
-  }
+      
   
   
   // ...
@@ -435,7 +448,7 @@ export class Firebase{
     
 }
 // Función para convertir un data URI a Blob
-function dataURItoBlob(dataURI) {
+function dataURItoBlob(dataURI: string): Blob {
     // Dividir el data URI en tipo y datos
     const splitDataURI = dataURI.split(",");
     // Obtener el tipo de datos (ej. 'image/png')
@@ -452,4 +465,4 @@ function dataURItoBlob(dataURI) {
     }
     // Crear un Blob a partir del ArrayBuffer
     return new Blob([buffer], { type });
-  }
+}
