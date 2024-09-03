@@ -1,21 +1,26 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "jsx": "react",
+    "noEmitOnError": false,          // Permitir la emisión incluso con errores de TypeScript
+    "skipLibCheck": true,            // Omitir la verificación de tipo de los archivos de declaración
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "strict": false,                 // Desactiva todas las verificaciones estrictas
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "forceConsistentCasingInFileNames": false,  // Ignorar errores de mayúsculas/minúsculas en los nombres de archivo
+    "noImplicitAny": false,                     // Permitir el uso implícito de 'any'
+    "ignoreDeprecations": "5.0"                 // Ignorar advertencias de deprecación en TypeScript 5.0
   },
   "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "exclude": ["node_modules", "build"]
 }

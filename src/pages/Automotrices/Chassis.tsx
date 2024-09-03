@@ -413,4 +413,4 @@ const Chassis:React.FC = () =>{
 export default Chassis;
 export type { FormData };
 
-sonar-scanner -Dsonar.login=
+sonar-scanner -Dsonar.login;
